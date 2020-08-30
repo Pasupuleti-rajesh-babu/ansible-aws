@@ -3,10 +3,10 @@
 
 <h2>Problem Statement</h2>
 <li>
-1.Provision EC2 instance through ansible.
-2.Retrieve the IP Address of instance using a dynamic inventory concept.
-3.Configure the webserver through ansible!
-4.Create a role for the webserver to customize the Instance and deploy the webpage to the root directory.
+1.Provision EC2 instance through ansible.</li>
+<li>2.Retrieve the IP Address of instance using a dynamic inventory concept.</li>
+<li>3.Configure the webserver through ansible!</li>
+<li>4.Create a role for the webserver to customize the Instance and deploy the webpage to the root directory.
   </l1>
 <p>In this task we will learn how to deploy a webserver on the top AWS EC2 instance using Ansible roles.
 We will be using RHEL8 as Controller Node and AWS Ec2 instance as Managed Node.</p>
