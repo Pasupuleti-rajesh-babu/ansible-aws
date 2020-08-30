@@ -1,0 +1,4 @@
+---
+# vars file for webserver
+dcdir: "/var/www/rajesh"
+httpport: 81

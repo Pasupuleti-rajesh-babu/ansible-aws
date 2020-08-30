@@ -1,0 +1,25 @@
+- hosts: localhost
+  vars_files: 
+       - cred.yml
+  tasks:
+    - name: os in cloud
+      ec2:
+        key_name: "ansiblekey1122"
+        instance_type: "t2.micro"
+        image: "ami-0ebc1ac48dfd14136"
+        wait: yes
+        region: "ap-south-1"
+        state: present
+        count: 1
+        vpc_subnet_id: "subnet-0f54c5bd6190e4ee4"
+        group_id: "sg-027af36c0e16d3926"
+        assign_public_ip: yes
+        aws_access_key: "{{username}}"
+        aws_secret_key: "{{password}}"
+        instance_tags:
+              Name: "webserver"
+      register: ec2 
+    - debug:
+            var: "{{ ec2['instances'][0][ 'key_name']}}"
+      #   var: "{{ ec2['instances'][0]['public_ip']}}"
+      

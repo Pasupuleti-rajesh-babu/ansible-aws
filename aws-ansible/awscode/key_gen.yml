@@ -1,0 +1,13 @@
+- hosts: localhost
+  vars_files:
+         - cred.yml
+  tasks:
+          - name: new ec2 key
+            ec2_key:
+                    name: ansiblekey11122
+                    region: "ap-south-1"
+            register: x
+          - name: save private key
+            copy: content="{{ x.key.private_key }}" dest="./ansiblekey11122.pem" mode=0600
+            when: x.changed
+

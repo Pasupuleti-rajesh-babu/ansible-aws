@@ -1,0 +1,31 @@
+---
+# tasks file for webserver
+- name: install httpd package
+  package:
+      name: "httpd"
+      state: present
+  register: x
+
+- name: document root dir
+  file:
+      state: directory
+      dest:  "{{ dcdir }}"
+  register: y
+  tags: webgit
+
+- name: conf web server
+  template:
+     dest: /etc/httpd/conf.d/rajesh.conf
+     src: templates/localconf.conf.j2
+  tags: webconf
+  notify: service httpd
+
+
+- name: copy web page from url
+  get_url:
+            dest: "{{ dcdir}}"
+            url:  "https://raw.githubusercontent.com/Pasupuleti-rajesh-babu/ansible-aws/master/index.html"
+- name: httpd service start
+  service:
+          name: httpd
+          state: started
