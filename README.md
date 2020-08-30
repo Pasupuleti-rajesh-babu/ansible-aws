@@ -1,6 +1,6 @@
 # ansible-aws
 <h1>Webserver configuration on AWS EC2 Instance using Ansible</h1>
-
+<img src="img_girl.jpg" alt="Girl in a jacket" width="500" height="600">
 <h2>Problem Statement</h2>
 <li>
 Provision EC2 instance through ansible.</li>
